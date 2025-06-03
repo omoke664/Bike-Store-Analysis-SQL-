@@ -1,0 +1,63 @@
+Tables and Columns:
+
+CUSTOMERS:
+customer_id (PK)
+first_name
+last_name
+phone
+email
+street
+city
+state
+zip_code
+STAFFS:
+staff_id (PK)
+first_name
+last_name
+email
+phone
+active (boolean)
+store_id (FK to STORES)
+manager_id (FK to STAFFS - self-referencing)
+STORES:
+store_id (PK)
+store_name
+phone
+email
+street
+city
+state
+zip_code
+ORDERS:
+order_id (PK)
+customer_id (FK to CUSTOMERS)
+order_status (e.g., 1=Pending, 2=Processing, 3=Rejected, 4=Completed)
+order_date
+required_date
+shipped_date
+store_id (FK to STORES)
+staff_id (FK to STAFFS)
+ORDER_ITEMS:
+order_id (FK to ORDERS, part of PK)
+item_id (part of PK)
+product_id (FK to PRODUCTS)
+quantity
+list_price (of the product at the time of the order)
+discount
+CATEGORIES:
+category_id (PK)
+category_name
+PRODUCTS:
+product_id (PK)
+product_name
+brand_id (FK to BRANDS)
+category_id (FK to CATEGORIES)
+model_year
+list_price
+STOCKS:
+store_id (FK to STORES, part of PK)
+product_id (FK to PRODUCTS, part of PK)
+quantity
+BRANDS:
+brand_id (PK)
+brand_name
